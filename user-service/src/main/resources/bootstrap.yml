@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: user-service
+  cloud:
+    config:
+      discovery:
+        #\u5F00\u542Fconfig client\u670D\u52A1
+        enabled: true
+        #\u53D1\u73B0\u670D\u52A1\u7684id
+        service-id: config-server
+      #\u8BFB\u53D6\u914D\u7F6E\u6587\u4EF6\u4E0D\u6210\u529F \u5B9E\u884C\u5FEB\u901F\u5931\u8D25\u7684\u7B56\u7565
+      fail-fast: true
+      #\u8BFB\u53D6\u683C\u5F0F${spring.application.name}-${profile}
+      profile: dev
+  zipkin:
+    base-url: http://localhost:9411
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
